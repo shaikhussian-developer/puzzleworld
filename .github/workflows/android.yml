@@ -61,6 +61,11 @@ jobs:
         working-directory: android
         run: ./gradlew assembleRelease
 
+      - name: Find APK
+        run: |
+          echo "APK files:"
+          find android/app/build/outputs -type f -name "*.apk" -print
+
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
